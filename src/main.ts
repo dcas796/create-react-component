@@ -16,6 +16,8 @@ function ${componentName}() {
         </div>
     )
 }
+
+export default ${componentName};
 `
 }
 
@@ -42,7 +44,7 @@ function throwError(message: string) {
         await mkdir(componentFolder, {recursive: true})
 
         // Create necessary files
-        await writeFile(`${componentFolder}/${name}.jsx`, generateComponentTsxTemplate(name))
+        await writeFile(`${componentFolder}/${name}.tsx`, generateComponentTsxTemplate(name))
         await writeFile(`${componentFolder}/${name}.css`, generateComponentCssTemplate(name))
     } catch (error) {
         throwError((error as Error).message)

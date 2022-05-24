@@ -15,6 +15,8 @@ function ${componentName}() {
         </div>
     )
 }
+
+export default ${componentName};
 `;
 }
 function generateComponentCssTemplate(componentName) {
@@ -36,7 +38,7 @@ function throwError(message) {
         var componentFolder = COMPONENTS_FOLDER + name;
         await promises_1.mkdir(componentFolder, { recursive: true });
         // Create necessary files
-        await promises_1.writeFile(`${componentFolder}/${name}.jsx`, generateComponentTsxTemplate(name));
+        await promises_1.writeFile(`${componentFolder}/${name}.tsx`, generateComponentTsxTemplate(name));
         await promises_1.writeFile(`${componentFolder}/${name}.css`, generateComponentCssTemplate(name));
     }
     catch (error) {
