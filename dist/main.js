@@ -27,7 +27,7 @@ function generateComponentCssTemplate(componentName) {
 }
 function throwError(message) {
     console.error("ERROR:", message);
-    process_1.exit(1);
+    (0, process_1.exit)(1);
 }
 (async () => {
     if (process.argv.length != 3)
@@ -36,10 +36,10 @@ function throwError(message) {
     try {
         // Create folder for component
         var componentFolder = COMPONENTS_FOLDER + name;
-        await promises_1.mkdir(componentFolder, { recursive: true });
+        await (0, promises_1.mkdir)(componentFolder, { recursive: true });
         // Create necessary files
-        await promises_1.writeFile(`${componentFolder}/${name}.tsx`, generateComponentTsxTemplate(name));
-        await promises_1.writeFile(`${componentFolder}/${name}.css`, generateComponentCssTemplate(name));
+        await (0, promises_1.writeFile)(`${componentFolder}/index.tsx`, generateComponentTsxTemplate(name));
+        await (0, promises_1.writeFile)(`${componentFolder}/${name}.css`, generateComponentCssTemplate(name));
     }
     catch (error) {
         throwError(error.message);
